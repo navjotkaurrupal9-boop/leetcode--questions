@@ -1,0 +1,25 @@
+
+class RecentCounter {
+
+    int[] arr;
+    int start;
+    int end;
+
+    public RecentCounter() {
+        arr = new int[10000];
+        start = 0;
+        end = 0;
+    }
+
+    public int ping(int t) {
+
+        arr[end] = t;
+        end++;
+
+        while (arr[start] < t - 3000) {
+            start++;
+        }
+
+        return end - start;
+    }
+}
